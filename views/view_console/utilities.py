@@ -40,4 +40,4 @@ class Utilities:
     def show_notes_list(self, list):
         for n in list:
             self.show_text(n.to_string())
-        input("для продолжения нажмите Enter")
+        input("Для продолжения нажмите Enter")

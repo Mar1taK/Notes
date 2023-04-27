@@ -54,15 +54,15 @@ class ViewConsoleBasic:
                 self.util.show_error()
                 continue
             elif answer == 1:
-                self.util.show_text("Введите Id")
+                self.util.show_text("Введите Id: ")
                 num = self.util.get_number(min= 1)
                 if num != -1:
                     notes_list.append(self.controller.get_note_by_id(id= num))
             elif answer == 2:
-                text = input("Введите дату или часть даты в формате д.м.г-ч:м:с например 28.02 или 02.2023\n")
+                text = input("Введите дату или часть даты в формате д.м.г-ч:м:с например 27.04 или 04.2023\n")
                 notes_list = self.controller.get_notes_by_data(text=text)
             elif answer == 3:
-                text = input("Введите заголовок или его часть\n").lower()
+                text = input("Введите заголовок или часть заголовка\n").lower()
                 notes_list = self.controller.get_notes_by_title(title=text)
             if text == "" and num == 0:
                 self.util.show_text('Запрос отсутсвует')
@@ -83,12 +83,12 @@ class ViewConsoleBasic:
                 self.util.show_error()
                 continue
             elif answer == 1:
-                self.util.show_text("Введите Id")
+                self.util.show_text("Введите Id: ")
                 num = self.util.get_number(min=1)
                 if num != -1:
                     note = self.controller.get_note_by_id(id=num)
                     if note.get_id() == 0:
-                        self.util.show_text('Заметка с таким Id не существует')
+                        self.util.show_text('Заметка с дынным Id не существует')
                     else:
                         if self.util.request_save(title=note.get_title(), text=note.get_text()):
                             self.controller.remove_note_by_id(id= note.get_id())
@@ -114,7 +114,7 @@ class ViewConsoleBasic:
             else:
                 note = self.controller.get_note_by_id(id=answer)
                 if note.get_id() == 0:
-                    self.util.show_text('Заметка с таким Id не существует')
+                    self.util.show_text('Заметка с данным Id не существует')
                 else:
                     self.run_update_menu(note)
 
